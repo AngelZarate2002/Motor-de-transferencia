@@ -1,0 +1,19 @@
+function dy=MotorOde(t, y)
+%-----------Definicion de los parametros----------%
+Ra = 2;
+Kt = 0.01;
+b = 0.0012;
+La = 0.023;
+Ke = 0.01;
+J = 0.001;
+Va = 5;
+%--------------------------------------------------%
+dy = zeros(3,1);
+%-------Definicion de la dinamica del sistema------%
+y1 = y(1); % i
+y3 = y(3); % dthetha/dt
+
+dy(1) = (1/La) * (Va - Ra*y1 - Ke*y3);
+dy(2) = y3;
+dy(3) = (1/J) * (Kt*y1 - b*y3);
+%--------------------------------------------------%
