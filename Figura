@@ -1,0 +1,8 @@
+[t, y] = ode45(@MotorOde, [0 10], [0 0 0]);
+
+figure;
+subplot(1, 1, 1);
+plot(t, y(:, 3));
+xlabel('Tiempo (s)');
+ylabel('Velocidad angular (\omega)');
+title('Velocidad angular');
